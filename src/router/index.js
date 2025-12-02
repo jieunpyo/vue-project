@@ -2,6 +2,7 @@ import HomeView from "@/views/HomeView.vue";
 import FoodDetailView from "@/views/FoodDetailView.vue";
 import FoodView from "@/views/FoodView.vue";
 import { createRouter, createWebHistory } from "vue-router";
+import RecipeView from "@/views/RecipeView.vue";
 
 const routes=[
     {
@@ -18,6 +19,11 @@ const routes=[
         path:'/food/detail/:fno',
         name:'food_detail',
         component:FoodDetailView
+    },
+    {
+        path:'/recipe',
+        name:'recipe',
+        component:RecipeView
     }
 ]
     // /food/detail/1  PathVariable 
