@@ -12,6 +12,13 @@
             </div>
             </div>
         </div>
+        <div class="row text-center" style="margin-top: 10px">
+            <ul class="pagination">
+                <li v-if="startPage>1"><a class="a-link">&lt;</a></li>
+                <li v-for="(i,index) in range(startPage,endPage)" :class="i===curpage?'active':''" :key="index"><a class="a-link">{{i}}</a></li>
+                <li v-if="endPage<totalpage"><a class="a-link">&gt;</a></li>
+            </ul>
+        </div>
     </div>
 </template> 
 <script>
@@ -44,9 +51,23 @@ export default({
                 const result=await response.json()
                 console.log(result)
                 this.food_list=result.list
+                this.curpage=result.curpage
+                this.totalpage=result.totalpage
+                this.startPage=result.startPage
+                this.endPage=result.endPage
             }catch(error){
                 console.log(error)
             }
+        },
+        range(start,end){
+            let arr=[]
+            let len=end-start
+            for(let i=0;i<=len;i++)
+            {
+                arr[i]=start
+                start++
+            }
+            return arr
         }
     }
 })
@@ -60,5 +81,8 @@ p{
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+.a-link{
+    cursor: pointer;
 }
 </style>
