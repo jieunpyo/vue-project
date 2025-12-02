@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="row text-center">
-            맛집 검색
+            맛집
         </div>
     </div>
 </template>
